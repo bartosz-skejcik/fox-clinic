@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 function Benefits() {
   return (
     <section className="py-16 bg-white">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         <h2 className="text-3xl font-bold tracking-tight text-center text-[#274e13] sm:text-4xl mb-12">
           Co wyróżnia nasz salon medycyny estetycznej?
         </h2>

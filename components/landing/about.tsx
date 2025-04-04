@@ -5,7 +5,7 @@ import Link from "next/link";
 function About() {
   return (
     <section className="py-16 bg-white">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div className="relative h-[400px] rounded-xl overflow-hidden">
             <Image

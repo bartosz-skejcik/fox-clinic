@@ -1,9 +1,9 @@
-"use server";
-
 import { NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 import chromium from "@sparticuz/chromium";
 import { Page } from "puppeteer-core";
+
+export const dynamic = "force-dynamic";
 
 export interface Testimonial {
   stars: number;

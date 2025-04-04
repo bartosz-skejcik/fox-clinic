@@ -6,12 +6,12 @@ import { MapPin, Phone } from "lucide-react";
 function Locations() {
   return (
     <section className="py-16 bg-gray-50">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         <h2 className="text-3xl font-bold tracking-tight text-center text-[#274e13] sm:text-4xl mb-12">
           Nasze lokalizacje
         </h2>
         <div className="grid gap-8 md:grid-cols-2">
-          <div className="bg-white rounded-xl p-6 flex flex-col h-full">
+          <div className="bg-white rounded-xl p-6 flex flex-col h-full text-neutral-600">
             <div className="flex items-center mb-4">
               <MapPin className="h-6 w-6 text-[#274e13] mr-2" />
               <h3 className="text-xl font-semibold">Fox Clinic Ursynów</h3>
@@ -34,12 +34,12 @@ function Locations() {
             <Button
               asChild
               variant="outline"
-              className="mt-auto border-[#274e13] text-[#274e13] hover:bg-[#274e13] hover:text-white"
+              className="mt-auto border-[#274e13] text-[#274e13] hover:bg-[#274e13] hover:text-white bg-transparent"
             >
               <Link href="/kontakt#ursynow">Więcej informacji</Link>
             </Button>
           </div>
-          <div className="bg-white rounded-xl p-6 flex flex-col h-full">
+          <div className="bg-white rounded-xl p-6 flex flex-col h-full text-neutral-600">
             <div className="flex items-center mb-4">
               <MapPin className="h-6 w-6 text-[#274e13] mr-2" />
               <h3 className="text-xl font-semibold">Fox Clinic Łomianki</h3>
@@ -62,7 +62,7 @@ function Locations() {
             <Button
               asChild
               variant="outline"
-              className="mt-auto border-[#274e13] text-[#274e13] hover:bg-[#274e13] hover:text-white"
+              className="mt-auto border-[#274e13] text-[#274e13] hover:bg-[#274e13] hover:text-white bg-transparent"
             >
               <Link href="/kontakt#lomianki">Więcej informacji</Link>
             </Button>

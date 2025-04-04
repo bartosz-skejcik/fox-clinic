@@ -19,7 +19,7 @@ export default function PricingPageClient() {
   const [activeTab, setActiveTab] = useState(treatmentCategories[0].id);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen text-neutral-600">
       {/* Hero Section */}
       <section className="relative w-full h-[40vh]">
         <Image
@@ -43,7 +43,7 @@ export default function PricingPageClient() {
       {/* Pricing Section */}
       <section className="py-16 bg-white">
         <div className="container px-4 md:px-6">
-          <Card className="mb-8">
+          <Card className="mb-8 border-transparent">
             <CardHeader>
               <CardTitle className="text-[#274e13]">
                 Wybierz kategorię zabiegów
@@ -58,12 +58,12 @@ export default function PricingPageClient() {
                 onValueChange={setActiveTab}
                 className="w-full"
               >
-                <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8">
+                <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8 gap-x-2">
                   {treatmentCategories.map((category) => (
                     <TabsTrigger
                       key={category.id}
                       value={category.id}
-                      className="data-[state=active]:bg-[#274e13] data-[state=active]:text-white"
+                      className="data-[state=active]:bg-[#274e13] data-[state=active]:text-white text-neutral-600 data-[state=active]:hover:bg-[#274e13] data-[state=active]:hover:text-white hover:bg-[#274e13]/10 hover:text-[#274e13] rounded-md px-4 py-2 transition-colors"
                     >
                       {category.name}
                     </TabsTrigger>
@@ -84,7 +84,7 @@ export default function PricingPageClient() {
                           .map((treatment) => (
                             <Card
                               key={treatment.id}
-                              className="overflow-hidden transition-all hover:shadow-md"
+                              className="overflow-hidden transition-all hover:shadow-md border-transparent"
                             >
                               <div className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div>
@@ -118,7 +118,7 @@ export default function PricingPageClient() {
                                     asChild
                                     variant="outline"
                                     size="sm"
-                                    className="border-[#274e13] text-[#274e13] hover:bg-[#274e13] hover:text-white"
+                                    className="border-[#274e13] text-[#274e13] hover:bg-[#274e13] hover:text-white bg-transparent"
                                   >
                                     <Link href={`/zabiegi/${treatment.slug}`}>
                                       <Info className="h-4 w-4 mr-1" />

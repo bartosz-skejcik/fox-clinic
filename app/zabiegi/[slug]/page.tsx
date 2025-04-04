@@ -5,7 +5,13 @@ import { ArrowLeft, Clock, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { treatments } from "@/lib/database";
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+interface TreatmentPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata(props: TreatmentPageProps) {
+  const params = await props.params;
+
   const treatment = treatments.find((t) => t.slug === params.slug);
 
   if (!treatment) {
@@ -26,12 +32,11 @@ export function generateStaticParams() {
   }));
 }
 
-export default function TreatmentPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const treatment = treatments.find((t) => t.slug === params.slug);
+export default async function TreatmentPage(props: TreatmentPageProps) {
+  const params = await props.params;
+  const { slug } = params;
+
+  const treatment = treatments.find((t) => t.slug === slug);
 
   if (!treatment) {
     notFound();
@@ -106,7 +111,9 @@ export default function TreatmentPage({
                 <h3 className="text-xl font-semibold text-[#274e13] mb-2">
                   Cena
                 </h3>
-                <p className="text-2xl font-bold">{treatment.price} zł</p>
+                <p className="text-2xl font-bold text-neutral-600">
+                  {treatment.price}
+                </p>
                 {treatment.priceNote && (
                   <p className="text-sm text-gray-500 mt-1">
                     {treatment.priceNote}

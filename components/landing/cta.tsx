@@ -5,7 +5,7 @@ import Link from "next/link";
 function Cta() {
   return (
     <section className="py-16 bg-[#274e13] text-white">
-      <div className="container px-4 md:px-6 text-center">
+      <div className="container px-4 md:px-6 text-center mx-auto">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
           Fox Clinic to miejsce, gdzie piękno łączy się ze zdrowiem
         </h2>
