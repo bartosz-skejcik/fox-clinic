@@ -16,7 +16,7 @@ export const metadata = {
 };
 
 const fetchReviews = async () => {
-  const resp = await fetch("http://localhost:3000/api/booksy");
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/booksy`);
 
   if (!resp.ok) {
     throw new Error("Failed to fetch reviews");
