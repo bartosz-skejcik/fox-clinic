@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Testimonial } from "@/app/api/booksy/route";
-import { contact } from "@/lib/database";
+// import { Testimonial } from "@/app/api/booksy/route";
+import { contact, testimonials } from "@/lib/database";
 
 export const dynamic = "force-dynamic";
 
@@ -15,17 +15,17 @@ export const metadata = {
     "Poznaj opinie naszych klientów o Fox Clinic - renomowanej klinice medycyny estetycznej w Warszawie.",
 };
 
-const fetchReviews = async () => {
-  const resp = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/booksy`);
-
-  if (!resp.ok) {
-    throw new Error("Failed to fetch reviews");
-  }
-
-  const { testimonials } = await resp.json();
-
-  return testimonials as Testimonial[];
-};
+// const fetchReviews = async () => {
+//   const resp = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/booksy`);
+//
+//   if (!resp.ok) {
+//     throw new Error("Failed to fetch reviews");
+//   }
+//
+//   const { testimonials } = await resp.json();
+//
+//   return testimonials as Testimonial[];
+// };
 
 export default function ReviewsPage() {
   return (
@@ -65,7 +65,8 @@ export default function ReviewsPage() {
 }
 
 async function ReviewsSection() {
-  const reviews = await fetchReviews();
+  // const reviews = await fetchReviews();
+  const reviews = testimonials;
   return (
     <section className="py-16 bg-white">
       <div className="container px-4 md:px-6 mx-auto">
@@ -77,17 +78,17 @@ async function ReviewsSection() {
                   <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                     <Image
                       src="/placeholder.svg?height=100&width=100"
-                      alt={review.reviewer}
+                      alt={review.name}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div>
                     <h3 className="font-semibold text-neutral-500">
-                      {review.reviewer}
+                      {review.name}
                     </h3>
                     <div className="flex text-yellow-400">
-                      {[...Array(review.stars)].map((_, j) => (
+                      {[...Array(review.rating)].map((_, j) => (
                         <svg
                           key={j}
                           xmlns="http://www.w3.org/2000/svg"
@@ -106,9 +107,9 @@ async function ReviewsSection() {
                   </div>
                 </div>
                 <p className="text-gray-700 italic">
-                  &quot;{review.reviewText}&quot;
+                  &quot;{review.description}&quot;
                 </p>
-                <div className="w-full flex flex-wrap gap-4 pt-4">
+                {/*<div className="w-full flex flex-wrap gap-4 pt-4">
                   {review.photos?.map((photo) => (
                     <img
                       key={photo}
@@ -117,7 +118,7 @@ async function ReviewsSection() {
                       className="object-cover rounded-xl w-20 h-20"
                     />
                   ))}
-                </div>
+                </div>*/}
               </CardContent>
             </Card>
           ))}
